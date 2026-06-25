@@ -11,14 +11,7 @@ set -euo pipefail
 # tracked gitlinks — scripts/check_gitlink_freshness.sh gates that they are not
 # stale. ada_feeding's default branch is ros2-devel (git clone picks it up).
 REPOS=(
-    "https://github.com/personalrobotics/ada_assets"
-    "https://github.com/personalrobotics/ada_feeding"
-    "https://github.com/personalrobotics/ada_mj"
-    "https://github.com/personalrobotics/ada_ros2"
-    "https://github.com/personalrobotics/articutool_ros2"
     "https://github.com/personalrobotics/asset_manager"
-    "https://github.com/personalrobotics/geodude"
-    "https://github.com/personalrobotics/geodude_assets"
     "https://github.com/personalrobotics/mj_environment"
     "https://github.com/personalrobotics/mj_manipulator"
     "https://github.com/personalrobotics/mj_manipulator_ros"
@@ -26,6 +19,8 @@ REPOS=(
     "https://github.com/personalrobotics/prl_assets"
     "https://github.com/personalrobotics/pycbirrt"
     "https://github.com/personalrobotics/tsr"
+    "https://github.com/ericjgoossen/openarm_assets"
+    "https://github.com/ericjgoossen/openarm"
 )
 
 # mujoco_menagerie is an external repo (not a Python package) needed by demos
