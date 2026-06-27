@@ -3,6 +3,8 @@
 uv.lock
 
 # Sibling repos — each is its own git repo, not tracked here
+/openarm
+/openarm_assets
 asset_manager/
 geodude/
 geodude_assets/
