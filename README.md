@@ -1,4 +1,4 @@
-# openarms_robot-code
+# openarm_robot-code
 
 Controller for the openarms
 
