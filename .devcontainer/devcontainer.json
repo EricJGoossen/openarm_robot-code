@@ -1,0 +1,36 @@
+{
+  "name": "OpenArm ROS2",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "options": ["--network=host"]
+  },
+  "runArgs": [
+    "--network=host",
+    "--privileged",
+    "-e", "DISPLAY",
+    "-v", "/tmp/.X11-unix:/tmp/.X11-unix:rw"
+  ],
+  "workspaceMount": "source=${localWorkspaceFolder},target=/openarm_ws/src,type=bind",
+  "workspaceFolder": "/openarm_ws/src",
+  "postCreateCommand": "rosdep update && rosdep install --from-paths /openarm_ws/src --ignore-src -r -y --skip-keys 'openarm_can openarm_description moveit_ros_move_group moveit_kinematics moveit_planners moveit_simple_controller_manager moveit_configs_utils moveit_ros_visualization moveit_setup_assistant' || true && cd /openarm_ws && colcon build --cmake-args -DCMAKE_EXPORT_COMPILE_COMMANDS=ON && cd /openarm_ws/src && ln -sf /openarm_ws/build/compile_commands.json compile_commands.json || true",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "llvm-vs-code-extensions.vscode-clangd",
+        "ms-iot.vscode-ros",
+        "ms-python.python"
+      ],
+      "settings": {
+        "clangd.path": "/usr/bin/clangd",
+        "clangd.arguments": [
+          "--compile-commands-dir=/openarm_ws/build",
+          "--background-index",
+          "--clang-tidy",
+          "--header-insertion=never",
+          "--completion-style=detailed"
+        ],
+        "C_Cpp.intelliSenseEngine": "disabled"
+      }
+    }
+  }
+}

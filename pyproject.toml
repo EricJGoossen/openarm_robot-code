@@ -17,3 +17,13 @@ members = [
     "openarm_assets",
     "openarm",
 ]
+
+[tool.uv.sources]
+ssik = { path = "../ssik", editable = true }
+
+[dependency-groups]
+dev = [
+    "pin>=4.1.0",
+    "robot-descriptions>=3.0.0",
+    "ssik",
+]

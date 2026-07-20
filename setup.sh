@@ -21,6 +21,10 @@ REPOS=(
     "https://github.com/personalrobotics/tsr"
     "https://github.com/ericjgoossen/openarm_assets"
     "https://github.com/ericjgoossen/openarm"
+    "https://github.com/ericjgoossen/openarm_impedance_control"
+    "https://github.com/ericjgoossen/rosbag_recorder"
+    "https://github.com/enactic/openarm_ros2"
+    "https://github.com/enactic/openarm_description"
 )
 
 # mujoco_menagerie is an external repo (not a Python package) needed by demos
