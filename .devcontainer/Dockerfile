@@ -5,6 +5,8 @@ ENV DEBIAN_FRONTEND=noninteractive
 # Install ROS2 Jazzy packages (repo already configured in base image)
 RUN apt-get update && apt-get install -y \
   tree \
+  build-essential \
+  cmake \
   ros-jazzy-desktop \
   ros-jazzy-controller-manager \
   ros-jazzy-gripper-controllers \
@@ -18,6 +20,8 @@ RUN apt-get update && apt-get install -y \
   ros-jazzy-ros2-control-test-assets \
   ros-jazzy-pinocchio \
   git \
+  curl \
+  vim \
   software-properties-common \
   python3-rosdep \
   python3-colcon-common-extensions \
@@ -35,9 +39,15 @@ RUN mkdir -p /usr/local/lib/cmake/openarm_can && \
     echo 'include("/usr/lib/aarch64-linux-gnu/cmake/OpenArmCAN/OpenArmCANConfig.cmake")' \
     > /usr/local/lib/cmake/openarm_can/openarm_canConfig.cmake
 
+# init rosdep
+RUN rosdep init || true
+
+# install uv
+ENV UV_INSTALL_DIR=/usr/local/bin
+RUN curl -LsSf https://astral.sh/uv/install.sh | sh
+ENV UV_LINK_MODE=copy
+
 RUN echo "source /opt/ros/jazzy/setup.bash" >> /root/.bashrc
-RUN echo "source /openarm_ws/install/setup.bash" >> /root/.bashrc
-RUN echo "alias cs='cd /openarm_ws && colcon build --symlink-install && source ~/.bashrc'" >> /root/.bashrc
 
 WORKDIR /openarm_ws
 CMD ["bash"]

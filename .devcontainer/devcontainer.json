@@ -12,7 +12,7 @@
   ],
   "workspaceMount": "source=${localWorkspaceFolder},target=/openarm_ws/src,type=bind",
   "workspaceFolder": "/openarm_ws/src",
-  "postCreateCommand": "rosdep update && rosdep install --from-paths /openarm_ws/src --ignore-src -r -y --skip-keys 'openarm_can openarm_description moveit_ros_move_group moveit_kinematics moveit_planners moveit_simple_controller_manager moveit_configs_utils moveit_ros_visualization moveit_setup_assistant' || true && cd /openarm_ws && colcon build --cmake-args -DCMAKE_EXPORT_COMPILE_COMMANDS=ON && cd /openarm_ws/src && ln -sf /openarm_ws/build/compile_commands.json compile_commands.json || true",
+  "postCreateCommand": "bash /openarm_ws/src/.devcontainer/post-create.sh",
   "customizations": {
     "vscode": {
       "extensions": [
