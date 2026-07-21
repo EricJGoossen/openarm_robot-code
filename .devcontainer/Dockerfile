@@ -36,6 +36,8 @@ RUN mkdir -p /usr/local/lib/cmake/openarm_can && \
     > /usr/local/lib/cmake/openarm_can/openarm_canConfig.cmake
 
 RUN echo "source /opt/ros/jazzy/setup.bash" >> /root/.bashrc
+RUN echo "source /openarm_ws/install/setup.bash" >> /root/.bashrc
+RUN echo "alias cs='cd /openarm_ws && colcon build --symlink-install && source ~/.bashrc'" >> /root/.bashrc
 
 WORKDIR /openarm_ws
 CMD ["bash"]
