@@ -19,6 +19,7 @@ RUN apt-get update && apt-get install -y \
   ros-jazzy-ros2-controllers \
   ros-jazzy-ros2-control-test-assets \
   ros-jazzy-pinocchio \
+  ros-jazzy-rmw-cyclonedds-cpp \
   git \
   curl \
   vim \
@@ -46,8 +47,6 @@ RUN rosdep init || true
 ENV UV_INSTALL_DIR=/usr/local/bin
 RUN curl -LsSf https://astral.sh/uv/install.sh | sh
 ENV UV_LINK_MODE=copy
-
-RUN echo "source /opt/ros/jazzy/setup.bash" >> /root/.bashrc
 
 WORKDIR /openarm_ws
 CMD ["bash"]

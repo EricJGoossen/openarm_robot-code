@@ -12,6 +12,7 @@
   ],
   "workspaceMount": "source=${localWorkspaceFolder},target=/openarm_ws/src,type=bind",
   "workspaceFolder": "/openarm_ws/src",
+  "mounts": ["source=${localWorkspaceFolder}/../ssik,target=/openarm_ws/ssik,type=bind"],
   "postCreateCommand": "bash /openarm_ws/src/.devcontainer/post-create.sh",
   "customizations": {
     "vscode": {

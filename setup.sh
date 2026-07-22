@@ -98,6 +98,14 @@ echo "==> Installing Python workspace (uv sync)..."
 uv sync
 
 echo ""
+echo "==> Generating WebXR teleop certs..."
+if [ -x openarm/scripts/generate_certs.sh ]; then
+    (cd openarm && ./scripts/generate_certs.sh)
+else    
+    echo "     skipped: openarm/scripts/generate_certs.sh not found or not executable"
+fi
+
+echo ""
 echo "Done. Verify with:"
 echo "  uv run python mj_manipulator/demos/cartesian_control.py"
 echo ""

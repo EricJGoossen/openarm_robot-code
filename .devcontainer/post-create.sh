@@ -26,11 +26,13 @@ ln -sf "$WS_ROOT/build/compile_commands.json" "$SRC_DIR/compile_commands.json"
 
 echo "==> uv sync (container-side Python venv)..."
 cd "$SRC_DIR"
-# NOTE: the workspace is bind-mounted, so the host's .venv (built by uv on
-# the host, per setup.sh) lives in the same directory the container sees.
-# Syncing here with the host's .venv path would mix a host-platform
-# interpreter with a container-platform one. UV_PROJECT_ENVIRONMENT gives
-# the container its own venv location so the two never collide.
 UV_PROJECT_ENVIRONMENT="$WS_ROOT/.venv-container" uv sync
+
+echo "==> Initializing bashrc..."
+
+echo "source /opt/ros/jazzy/setup.bash" >> /root/.bashrc
+echo "source /openarm_ws/install/setup.bash" >> /root/.bashrc
+echo "export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp" >> /root/.bashrc
+echo "alias cs='cd /openarm_ws && source ~/.bashrc && colcon build --symlink-install'" >> /root/.bashrc
 
 echo "==> post-create complete."
