@@ -9,7 +9,7 @@ set -euo pipefail
 UV_REPOS=(
     "https://github.com/personalrobotics/asset_manager"
     "https://github.com/personalrobotics/mj_environment"
-    "https://github.com/personalrobotics/mj_manipulator"
+    "https://github.com/EricJGoossen/mj_manipulator"
     "https://github.com/personalrobotics/mj_viser"
     "https://github.com/personalrobotics/prl_assets"
     "https://github.com/personalrobotics/pycbirrt"
@@ -22,7 +22,7 @@ UV_REPOS=(
 # is ament_python and dual-purpose (imported by uv AND colcon-built for the
 # ROS overlay), so it's NOT colcon-ignored and is also a uv workspace member.
 ROS_REPOS=(
-    "https://github.com/personalrobotics/mj_manipulator_ros"
+    "https://github.com/EricJGoossen/mj_manipulator_ros"
     "https://github.com/ericjgoossen/openarm_impedance_control"
     "https://github.com/ericjgoossen/rosbag_recorder"
     "https://github.com/enactic/openarm_ros2"

@@ -23,6 +23,7 @@ ssik = { path = "../ssik", editable = true }
 
 [dependency-groups]
 dev = [
+    "catkin_pkg",
     "pin>=4.1.0",
     "robot-descriptions>=3.0.0",
     "ssik",
