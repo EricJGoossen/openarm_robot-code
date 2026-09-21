@@ -20,6 +20,7 @@ members = [
 
 [tool.uv.sources]
 ssik = { path = "../ssik", editable = true }
+sstsr = { workspace = true }
 
 [dependency-groups]
 dev = [
