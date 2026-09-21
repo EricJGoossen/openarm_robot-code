@@ -10,9 +10,15 @@ geodude/
 geodude_assets/
 mj_environment/
 mj_manipulator/
+mj_manipulator_ros/
+mj_viser/
 mujoco_menagerie/
+openarm_description/
+openarm_impedance_control/
+openarm_ros2/
 prl_assets/
 pycbirrt/
+rosbag_recorder/
 tsr/
 
 # Old/orphan directories
