@@ -8,7 +8,7 @@ set -euo pipefail
 # stamped in so colcon doesn't crawl them looking for package.xml.
 UV_REPOS=(
     "https://github.com/personalrobotics/asset_manager"
-    "https://github.com/personalrobotics/mj_environment"
+    "https://github.com/EricJGoossen/mj_environment"
     "https://github.com/EricJGoossen/mj_manipulator"
     "https://github.com/personalrobotics/mj_viser"
     "https://github.com/personalrobotics/prl_assets"
