@@ -2,7 +2,14 @@
 # Run `uv sync` here to install all workspace members in a shared venv.
 [tool.uv]
 # Exclude labmaze — requires Bazel, not needed for dm_control.mjcf
-override-dependencies = ["labmaze ; sys_platform == 'never'"]
+# Pin toppra to 0.6.3 on non-x86_64 — 0.6.4+ stopped publishing an sdist and
+# never shipped aarch64 wheels, so it can't be installed at all on this
+# platform (e.g. Jetson) otherwise; 0.6.3 is the oldest version mj_manipulator
+# accepts and still has an sdist uv can build from source.
+override-dependencies = [
+    "labmaze ; sys_platform == 'never'",
+    "toppra==0.6.3 ; platform_machine == 'aarch64'",
+]
 
 [tool.uv.workspace]
 members = [
